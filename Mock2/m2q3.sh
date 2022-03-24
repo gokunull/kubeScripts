@@ -11,7 +11,7 @@ metadata:
 spec:
   containers:
   - image: busybox:1.28
-	name: super-user-pod
+    name: super-user-pod
     command: ["sleep", "4800"]
     securityContext:
       capabilities:
