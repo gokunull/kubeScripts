@@ -3,7 +3,7 @@
 
 k=kubectl
 
-cat << EOF > super-user-pod.yaml
+cat << EOF | $k apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -18,4 +18,3 @@ spec:
         add: ["SYS_TIME"]
 EOF
 
-$k create -f super-user-pod.yaml

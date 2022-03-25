@@ -3,7 +3,7 @@
 
 k=kubectl
 
-cat << EOF > storage.yaml
+cat << EOF | $k apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -20,5 +20,4 @@ spec:
     emptyDir: {}
 EOF
 
-$k create -f storage.yaml
  

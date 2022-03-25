@@ -3,7 +3,7 @@
 
 k=kubectl
 
-cat << EOF > pvc.yaml
+cat << EOF | $k apply -f -
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -16,8 +16,6 @@ spec:
     requests:
       storage: 100Mi
 EOF
-
-$k create -f pvc.yaml
 
 cat << EOF > /root/CKA/use-pv.yaml
 apiVersion: v1
@@ -35,7 +33,7 @@ spec:
       - mountPath: "/data"
         name: my-pvc
   volumes:
-    - name: mypd
+    - name: my-pvc
       persistentVolumeClaim:
         claimName: my-pvc
 EOF
