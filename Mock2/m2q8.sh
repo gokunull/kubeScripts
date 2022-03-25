@@ -12,4 +12,4 @@ spec:
     image: nginx
 EOF
 
-ssh node01 'mkdir /etc/kubernetes/manifests/' | scp ~/nginx-critical.yaml /etc/kubernetes/manifests/
+scp ~/nginx-critical.yaml /etc/kubernetes/manifests/
